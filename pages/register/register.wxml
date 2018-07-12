@@ -1,2 +1,35 @@
 <!--pages/register/register.wxml-->
-<text>pages/register/register.wxml</text>
+<view class='container'>
+    <image class='back-img' src='../../images/background.png'></image>
+    <view class='frame'>
+        <view class='title-view'><text decode='true'>注&nbsp;&nbsp;&nbsp;&nbsp;册</text></view>
+        <view class='register-view-back'>
+            <view class='register-item'>
+                <form bindsubmit='bindSubmit'>
+                <view class='input-txt'>登录名</view>
+                <view class='input-view'>
+                    <input type='text' name='loginName' placeholder='请输入登录名' placeholder-class='placeholder'></input>
+                </view>
+                <view class='input-txt'>真实姓名</view>
+                <view class='input-view'>
+                    <input type='text' name='realName' placeholder='请输入真实姓名' placeholder-class='placeholder'></input>
+                </view>
+                <view class='input-txt'>密码</view>
+                <view class='input-view'>
+                    <input type='text' name='password' password='true' placeholder='请输入密码' placeholder-class='placeholder'></input>
+                </view>
+                <view class='input-txt'>手机号</view>
+                <view class='input-view'>
+                    <input type='number' name='mobile' placeholder='请输入手机号' placeholder-class='placeholder'></input>
+                </view>
+                <view class='input-txt'>用户类型</view>
+                <picker name='usertype' range='{{userTypes}}' bindchange='bindPickerChange'>
+                    <view wx:if='{{pickerChange}}' class='input-view placeholder usertype'>{{userType}}</view>
+                    <view wx:else class='input-view placeholder'>{{userType}}</view>
+                </picker>
+                <button class='submit' form-type='submit'>提交</button>
+                </form>
+            </view>
+        </view>
+    </view>
+</view>
