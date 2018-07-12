@@ -1,11 +1,14 @@
 {
     "pages": [
+        "pages/login/login",
         "pages/index/index",
         "pages/mine/mine",
-        "pages/login/login",
+        
         "pages/register/register"
     ],
     "tabBar": {
+        "color": "#cdcdcd",
+        "selectedColor": "#1296db",
         "list": [
             {
                 "pagePath": "pages/index/index",

@@ -1,14 +1,14 @@
 <!--pages/index/index.wxml-->
 <view class='container'>
-    <swiper interval='3000' autoplay='true' circular='true'>
+    <swiper interval='4000' autoplay='true' circular='true'>
         <swiper-item wx:for='{{imgUrls}}' wx:key='unique'>
             <image class='swiper-img' src='{{item}}'></image>
         </swiper-item>
     </swiper>
     <view class='bulletin-tip'>
         <view class='bulletin-left'>
-            <image class='icon-laba' src='../../images/icon-laba.png'></image>
-            <view>
+            <view class='icon-tip'></view>
+            <view class='icon-txt'>
                 <text>公告栏 Bulletin Board</text>
             </view>
         </view>
@@ -22,21 +22,26 @@
     <view class='bulletin'>
 
     </view>
-
+    <view class='service-tip'>
+        <view class='icon-tip'></view>
+        <view class='icon-txt'>
+            <text>服务</text>
+        </view>
+    </view>
     <view class='option-area'>
-        <view class='option-btn'>
+        <view class='option-btn opt-repair'>
             <view class='option-img'>
                 <image class='option-icon' src='../../images/icon-repair.png'></image>
             </view>
             <text>我要报修</text>
         </view>
-        <view class='option-btn'>
+        <view class='option-btn opt-query'>
             <view class='option-img'>
                 <image class='option-icon' src='../../images/icon-query.png'></image>
             </view>
             <text>报修查询</text>
         </view>
-        <view class='option-btn'>
+        <view class='option-btn opt-comment'>
             <view class='option-img'>
                 <image class='option-icon' src='../../images/icon-comment.png'></image>
             </view>

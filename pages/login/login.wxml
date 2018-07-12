@@ -1,2 +1,34 @@
 <!--pages/login/login.wxml-->
-<text>pages/login/login.wxml</text>
+<view class='container'>
+    <image class='back-img' src='../../images/background.png'></image>
+    <view class='title-view'></view>
+    <text class='title'>{{title}}</text>
+    <view class='login-view-back'></view>
+        <view class='login-view'>
+            <form bindsubmit='onLogin'>
+            <view class='edit-area'>
+                <view class='input-txt'>
+                    <text>登录名</text>
+                </view>
+                <view class='input-view'>
+                    <input type='text' name='loginName' placeholder='请输入登录名' placeholder-class='placeholder'></input>
+                </view>
+                <view class='input-txt'>
+                    <text>密码</text>
+                </view>
+                <view class='input-view'>
+                    <input type='text' name='password' placeholder='请输入密码' password='true' placeholder-class='placeholder'></input>
+                </view>
+            </view>
+            <view class='line-area'>
+                <view class='line'></view>
+                <text>Or</text>
+                <view class='line'></view>
+            </view>
+            <view class='btn-area'>
+                <button class='register' bindtap='toRegister'>注册</button>
+                <button class='login' form-type='submit'>登录</button>
+            </view>
+            </form>
+        </view>
+</view>
