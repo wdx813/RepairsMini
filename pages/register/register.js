@@ -9,16 +9,14 @@ Page({
     data: {
         userTypes: ['教师', '学生', '职工'],
         userType: '--- 请选择 ---',
-        pickerChange: false,
-        pickerValue: 0
+        pickerChange: false
     },
 
     bindPickerChange: function(e) {
-        var index = parseInt(e.detail.value)
+        var index = e.detail.value
         this.setData({
             userType: this.data.userTypes[index],
-            pickerChange: true,
-            pickerValue: index + 1 + ''
+            pickerChange: true
         })
     },
 
@@ -76,7 +74,7 @@ Page({
             return
         }
         var url = '/appuser/register?loginName=' + userInfo.loginName + '&realName=' + userInfo.realName 
-            + '&password=' + userInfo.password + '&mobile=' + userInfo.mobile + '&usertype=' + userInfo.usertype
+            + '&password=' + userInfo.password + '&mobile=' + userInfo.mobile + '&usertype=' + (parseInt(userInfo.usertype) + 1)
         console.log(url)
         wx.showLoading({
             title: '正在提交...',
