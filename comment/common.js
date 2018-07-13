@@ -52,5 +52,6 @@ function uploadFile(url, data, filePath) {
 
 
 module.exports = {
-    login
+    login,
+    register
 }

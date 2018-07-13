@@ -23,7 +23,7 @@
                     <input type='number' name='mobile' placeholder='请输入手机号' placeholder-class='placeholder'></input>
                 </view>
                 <view class='input-txt'>用户类型</view>
-                <picker name='usertype' range='{{userTypes}}' bindchange='bindPickerChange'>
+                <picker name='usertype' range='{{userTypes}}' value='{{pickerValue}}' bindchange='bindPickerChange'>
                     <view wx:if='{{pickerChange}}' class='input-view placeholder usertype'>{{userType}}</view>
                     <view wx:else class='input-view placeholder'>{{userType}}</view>
                 </picker>

@@ -56,8 +56,10 @@ swiper {
 }
 
 .bulletin {
-    height: 300rpx;
+    height: 240rpx;
     background-color: #fff;
+    position: relative;
+    top: 20rpx;
 }
 
 .service-tip {
@@ -67,7 +69,7 @@ swiper {
     align-items: center;
     background-color: #fff;
     position: relative;
-    top: 20rpx;
+    top: 40rpx;
     border-bottom: 1rpx solid #eee;
 }
 
@@ -110,4 +112,27 @@ swiper {
     width: 32px;
     height: 32px;
     margin-top: 30rpx;
+}
+
+.bulletin-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 80rpx;
+    font-size: 30rpx;
+    border-bottom: 1rpx solid #eee;
+}
+
+.icon-bulletin {
+    width: 32rpx;
+    height: 32rpx;
+    position: relative;
+    left: 10rpx;
+}
+
+.bulletin-title {
+    width: 70%;
+    position: relative;
+    left: 20rpx;
 }

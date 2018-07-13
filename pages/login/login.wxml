@@ -11,13 +11,13 @@
                     <text>登录名</text>
                 </view>
                 <view class='input-view'>
-                    <input type='text' name='loginName' placeholder='请输入登录名' placeholder-class='placeholder'></input>
+                    <input type='text' name='loginName' value='{{loginName}}' placeholder='请输入登录名' placeholder-class='placeholder'></input>
                 </view>
                 <view class='input-txt'>
                     <text>密码</text>
                 </view>
                 <view class='input-view'>
-                    <input type='text' name='password' placeholder='请输入密码' password='true' placeholder-class='placeholder'></input>
+                    <input type='text' name='password' value='{{password}}' placeholder='请输入密码' password='true' placeholder-class='placeholder'></input>
                 </view>
             </view>
             <view class='line-area'>

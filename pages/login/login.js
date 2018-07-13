@@ -7,7 +7,9 @@ Page({
      * 页面的初始数据
      */
     data: {
-        title: '欢迎登录报修平台'
+        title: '欢迎登录报修平台',
+        loginName: '',
+        password: ''
     },
 
     onLogin: function(e) {
@@ -29,9 +31,12 @@ Page({
             })
             return
         }
-
+        wx.showLoading({
+            title: '正在登录...',
+        })
         common.login('/appuser/appuserlogin?loginName=' + loginName + '&password=' + password).then(res => {
             console.log(res)
+            wx.hideLoading()
             if(res.code == 0) {
                 wx.setStorageSync('token', res.token)
                 wx.switchTab({
@@ -63,7 +68,12 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-
+        if (options.loginName && options.password) {
+            this.setData({
+                loginName: options.loginName,
+                password: options.password
+            })
+        }
     },
 
     /**
