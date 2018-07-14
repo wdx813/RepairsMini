@@ -1,4 +1,4 @@
-// pages/bulletin/bulletin.js
+// pages/bulletin-detail/bulletin-detail.js
 Page({
 
   /**
@@ -12,7 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+  
   },
 
   /**

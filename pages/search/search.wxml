@@ -1,0 +1,6 @@
+<!--pages/search/search.wxml-->
+<import src='../../template/search-box/search-box' />
+<view class='container'>
+    <template is='search-box' />
+    <view class='line'></view>
+</view>

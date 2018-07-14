@@ -27,6 +27,24 @@ Page({
         ]
     },
 
+    toRepair: function() {
+        wx.navigateTo({
+            url: '/pages/repair/repair',
+        })
+    },
+
+    toSearch: function () {
+        wx.navigateTo({
+            url: '/pages/search/search',
+        })
+    },
+
+    toComment: function() {
+        wx.navigateTo({
+            url: '/pages/comment/comment',
+        })
+    },
+
     /**
      * 生命周期函数--监听页面加载
      */

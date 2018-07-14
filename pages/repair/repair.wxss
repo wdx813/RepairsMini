@@ -1,0 +1,106 @@
+/* pages/repair/repair.wxss */
+.container {
+    background-color: #eee;
+}
+
+.title {
+    width: 100%;
+    height: 50rpx;
+    padding: 10rpx 15rpx;
+    font-size: 32rpx;
+}
+
+.textarea-box {
+    width: 100%;
+    height: 350rpx;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+textarea {
+    width: 97%;
+    height: 95%;
+}
+
+.placeholder {
+    font-size: 30rpx;
+}
+
+.img-box {
+    width: 100%;
+    height: 200rpx;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.choose-btn {
+    width: 150rpx;
+    height: 150rpx;
+    border: 1px dashed #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7rpx;
+}
+
+.icon-camera, .icon-delete {
+    width: 64rpx;
+    height: 64rpx;
+}
+
+.preview-img-box {
+    width: 150rpx;
+    height: 150rpx;
+}
+
+.preview-img {
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 7rpx;
+    border: 1px solid #eee;
+}
+
+.delete-btn {
+    width: 150rpx;
+    height: 150rpx;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7rpx;
+    border: 1px solid #eee;
+}
+
+.info-box {
+    width: 100%;
+    height: 300rpx;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    align-items: center;
+}
+
+.input-box {
+    display: flex;
+    align-items: center;
+    border-bottom: 1rpx solid #eee;
+    width: 96%;
+    height: 80rpx;
+    font-size: 32rpx;
+}
+
+.info-title {
+    font-size: 32rpx;
+    margin-right: 20rpx;
+}
+
+.submit {
+    background-color: #4ba7e7;
+    color: #fff;
+    position: relative;
+    top: 30rpx;
+}

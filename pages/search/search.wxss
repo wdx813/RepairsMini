@@ -1,0 +1,8 @@
+/* pages/search/search.wxss */
+@import '../../template/search-box/search-box';
+
+.line {
+    background-color: #eee;
+    width: 100%;
+    height: 10rpx;
+}

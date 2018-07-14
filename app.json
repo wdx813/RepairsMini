@@ -3,8 +3,12 @@
         "pages/login/login",
         "pages/index/index",
         "pages/mine/mine",
-        "pages/bulletin/bulletin",
-        "pages/register/register"
+        "pages/register/register",
+        "pages/repair/repair",
+        "pages/search/search",
+        "pages/comment/comment",
+        "pages/bulletin-list/bulletin-list",
+        "pages/bulletin-detail/bulletin-detail"
     ],
     "tabBar": {
         "color": "#cdcdcd",

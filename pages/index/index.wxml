@@ -33,19 +33,19 @@
         </view>
     </view>
     <view class='option-area'>
-        <view class='option-btn opt-repair'>
+        <view class='option-btn opt-repair' bindtap='toRepair'>
             <view class='option-img'>
                 <image class='option-icon' src='../../images/icon-repair.png'></image>
             </view>
             <text>我要报修</text>
         </view>
-        <view class='option-btn opt-query'>
+        <view class='option-btn opt-query' bindtap='toSearch'>
             <view class='option-img'>
                 <image class='option-icon' src='../../images/icon-query.png'></image>
             </view>
             <text>报修查询</text>
         </view>
-        <view class='option-btn opt-comment'>
+        <view class='option-btn opt-comment' bindtap='toComment'>
             <view class='option-img'>
                 <image class='option-icon' src='../../images/icon-comment.png'></image>
             </view>
