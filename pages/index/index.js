@@ -13,18 +13,34 @@ Page({
 
         bulletins: [
             {
+                'id': 1,
                 'title': '学校报修，我们是认真的，那是必...',
                 'time': '2018-07-13'
             },
             {
+                'id': 2,
                 'title': '学校报修，我们是认真的',
                 'time': '2018-07-13'
             },
             {
+                'id': 3,
                 'title': '学校报修，我们是认真的',
                 'time': '2018-07-13'
             },
         ]
+    },
+
+    toBulletinList: function() {
+        wx.navigateTo({
+            url: '/pages/bulletin-list/bulletin-list',
+        })
+    },
+
+    toBulletinDetail: function(e) {
+        var bulletinId = e.currentTarget.dataset.id
+        wx.navigateTo({
+            url: '/pages/bulletin-detail/bulletin-detail?bulletinId=' + bulletinId,
+        })
     },
 
     toRepair: function() {

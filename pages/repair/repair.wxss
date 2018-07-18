@@ -5,8 +5,27 @@
 
 .title {
     width: 100%;
-    height: 50rpx;
+    height: 60rpx;
+    font-size: 32rpx;
     padding: 10rpx 15rpx;
+    box-sizing: border-box;
+}
+
+.theme-box {
+    width: 100%;
+    height: 70rpx;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme {
+    width: 97%;
+    height: 98%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 32rpx;
 }
 
@@ -73,29 +92,6 @@ textarea {
     align-items: center;
     border-radius: 7rpx;
     border: 1px solid #eee;
-}
-
-.info-box {
-    width: 100%;
-    height: 300rpx;
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    align-items: center;
-}
-
-.input-box {
-    display: flex;
-    align-items: center;
-    border-bottom: 1rpx solid #eee;
-    width: 96%;
-    height: 80rpx;
-    font-size: 32rpx;
-}
-
-.info-title {
-    font-size: 32rpx;
-    margin-right: 20rpx;
 }
 
 .submit {

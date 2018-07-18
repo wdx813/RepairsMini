@@ -1,8 +1,12 @@
 <!--pages/repair/repair.wxml-->
 <view class='container' bindtap='hideDeleteBtn'>
-    <view class='title'>问题描述</view>
+    <view class='title'>报修主题</view>
+    <view class='theme-box'>
+        <input class='theme' type='text' name='pairtheme'></input>
+    </view>
+    <view class='title'>报修内容</view>
     <view class='textarea-box'>
-        <textarea name='' maxlength='-1' placeholder='请输入对问题的描述，可输入1000字' placeholder-class='placeholder'></textarea>
+        <textarea name='paoicontent' maxlength='-1' placeholder='请输入对问题的描述，可输入1000字' placeholder-class='placeholder'></textarea>
     </view>
     <view class='title'>上传图片(长按可删除)</view>
     <view class='img-box'>
@@ -16,17 +20,6 @@
         </view>
         <view class='choose-btn' wx:if='{{showChooseBtn}}' bindtap='bindChooseImg'>
             <image class='icon-camera' src='../../images/icon-camera.png'></image>
-        </view>
-    </view>
-    <view class='title'>联系信息</view>
-    <view class='info-box'>
-        <view class='input-box'>
-            <view class='info-title'>联系人</view>
-            <input type='text' placeholder='请输入您的姓名' placeholder-class='placeholder'></input>
-        </view>
-        <view class='input-box'>
-            <view class='info-title'>手机号</view>
-            <input type='text' placeholder='请输入您的手机号' placeholder-class='placeholder'></input>
         </view>
     </view>
     <button class='submit'>确认提交</button>

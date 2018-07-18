@@ -83,13 +83,12 @@ Page({
             console.log(res)
             if(res.code == 0) {
                 wx.hideLoading()
-                wx.showToast({
-                    title: '注册成功',
-                    icon: 'none',
-                    duration: 1500,
+                wx.showModal({
+                    content: '恭喜您注册成功',
+                    showCancel: false,
                     success: () => {
                         wx.redirectTo({
-                            url: '/pages/login/login?loginName=' + userInfo.loginName + 'password=' + userInfo.password,
+                            url: '/pages/login/login?loginName=' + userInfo.loginName + '&password=' + userInfo.password,
                         })
                     }
                 })
