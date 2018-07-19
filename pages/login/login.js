@@ -34,7 +34,7 @@ Page({
         wx.showLoading({
             title: '正在登录...',
         })
-        common.login('/appuser/appuserlogin?loginName=' + loginName + '&password=' + password).then(res => {
+        common.login('/core/appuser/appuserlogin?loginName=' + loginName + '&password=' + password).then(res => {
             console.log(res)
             wx.hideLoading()
             if(res.code == 0) {

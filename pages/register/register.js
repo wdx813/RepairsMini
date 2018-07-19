@@ -73,7 +73,7 @@ Page({
             })
             return
         }
-        var url = '/appuser/register?loginName=' + userInfo.loginName + '&realName=' + userInfo.realName 
+        var url = '/core/appuser/register?loginName=' + userInfo.loginName + '&realName=' + userInfo.realName 
             + '&password=' + userInfo.password + '&mobile=' + userInfo.mobile + '&usertype=' + (parseInt(userInfo.usertype) + 1)
         console.log(url)
         wx.showLoading({

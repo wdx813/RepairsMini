@@ -1,26 +1,32 @@
 <!--pages/repair/repair.wxml-->
 <view class='container' bindtap='hideDeleteBtn'>
-    <view class='title'>报修主题</view>
-    <view class='theme-box'>
-        <input class='theme' type='text' name='pairtheme'></input>
-    </view>
-    <view class='title'>报修内容</view>
-    <view class='textarea-box'>
-        <textarea name='paoicontent' maxlength='-1' placeholder='请输入对问题的描述，可输入1000字' placeholder-class='placeholder'></textarea>
-    </view>
-    <view class='title'>上传图片(长按可删除)</view>
-    <view class='img-box'>
-        <block wx:for='{{tempFilePaths}}' wx:key='unique'>
-            <view class='preview-img-box'>
-                <image class='preview-img' src='{{item}}' data-index='{{index}}' bindlongpress='showDeleteBtn'></image>
+    <form bindsubmit='bindSubmit'>
+        <view class='title'>报修主题</view>
+        <view class='theme-box'>
+            <input class='theme' type='text' name='pairtheme'></input>
+        </view>
+        <view class='title'>报修类型</view>
+        <view class='type-box' bindtap='bindChooseRepairType'>
+            <input class='type' type='text' name='' disabled='true' value='{{repairType}}'></input>
+        </view>
+        <view class='title'>报修内容</view>
+        <view class='textarea-box'>
+            <textarea name='paorcontent' maxlength='-1' placeholder='请输入对问题的描述，可输入1000字' placeholder-class='placeholder'></textarea>
+        </view>
+        <view class='title'>上传图片</view>
+        <view class='img-box'>
+            <block wx:for='{{tempFilePaths}}' wx:key='unique'>
+                <view class='preview-img-box'>
+                    <image class='preview-img' src='{{item}}' data-index='{{index}}' bindlongpress='showDeleteBtn'></image>
+                </view>
+            </block>
+            <view class='delete-btn' wx:if='{{showDeleteBtn}}' style='position: absolute;left: {{left}}px; top: {{top}};px' bindtap='deleteTempFile'>
+                <image class='icon-delete' src='../../images/icon-delete.png'></image>
             </view>
-        </block>
-        <view class='delete-btn' wx:if='{{showDeleteBtn}}' style='position: absolute;left: {{left}}px; top: {{top}};px' bindtap='deleteTempFile'>
-            <image class='icon-delete' src='../../images/icon-delete.png'></image>
+            <view class='choose-btn' wx:if='{{showChooseBtn}}' bindtap='bindChooseImg'>
+                <image class='icon-camera' src='../../images/icon-camera.png'></image>
+            </view>
         </view>
-        <view class='choose-btn' wx:if='{{showChooseBtn}}' bindtap='bindChooseImg'>
-            <image class='icon-camera' src='../../images/icon-camera.png'></image>
-        </view>
-    </view>
-    <button class='submit'>确认提交</button>
+        <button class='submit' form-type='submit'>确认提交</button>
+    </form>
 </view>

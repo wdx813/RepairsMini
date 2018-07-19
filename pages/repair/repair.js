@@ -1,4 +1,6 @@
 // pages/repair/repair.js
+const common = require('../../comment/common.js')
+
 Page({
 
     /**
@@ -11,9 +13,30 @@ Page({
         top: 0, 
         index: 0,
         tempFilePaths: [],
-        tempFiles: []
+        tempFiles: [],
+        repairTheme: '',
+        repairType: '',
+        repairTypeIndex: 0,
+        repairContent: ''
     },
 
+    /**
+     * 选择报修类型
+     */
+    bindChooseRepairType: function() {
+        var that = this
+        var repairTypeList = ['水电设施', '环境设施', '生活设施']
+        wx.showActionSheet({
+            itemList: repairTypeList,
+            success: res => {
+                that.setData({ repairType: repairTypeList[res.tapIndex], repairTypeIndex: res.tapIndex + 1 })
+            }
+        })
+    },
+
+    /**
+     * 选择上传图片
+     */
     bindChooseImg: function(e) {
         var that = this
         wx.chooseImage({
@@ -29,6 +52,53 @@ Page({
         })
     },
 
+    /**
+     * 提交
+     */
+
+    bindSubmit: function (e) {
+        // var pairtheme = e.detail.value.pairtheme.trim()
+        // var repairType = this.data.repairTypeIndex
+        // var paorcontent = e.detail.value.paorcontent.trim()
+        // if (pairtheme == "") {
+        //     wx.showToast({
+        //         title: '报修主题不能为空',
+        //         icon: 'none',
+        //         duration: 2000
+        //     })
+        //     return
+        // }
+
+        // if (repairType == 0) {
+        //     wx.showToast({
+        //         title: '报修类型不能为空',
+        //         icon: 'none',
+        //         duration: 2000
+        //     })
+        //     return
+        // }
+
+        // if (paorcontent == "") {
+        //     wx.showToast({
+        //         title: '报修内容不能为空',
+        //         icon: 'none',
+        //         duration: 2000
+        //     })
+        //     return
+        // }
+
+        var path = this.data.tempFilePaths[0]
+        console.log(path)
+        common.uploadFile('/core/res/upload/repairimgs', path).then(res => {
+            console.log(res)
+        })
+
+
+    },
+
+    /**
+     * 显示删除按钮
+     */
     showDeleteBtn: function(e) {
         var left = e.currentTarget.offsetLeft
         var top = e.currentTarget.offsetTop
@@ -36,10 +106,16 @@ Page({
         this.setData({left: left, top: top, showDeleteBtn: true, index: index})
     },
 
+    /**
+     * 隐藏删除按钮
+     */
     hideDeleteBtn: function() {
         this.setData({showDeleteBtn: false})
     },
 
+    /**
+     * 删除临时图片
+     */
     deleteTempFile: function() {
         var index = this.data.index
         this.data.tempFilePaths.splice(index, 1)
