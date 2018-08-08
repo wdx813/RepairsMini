@@ -38,7 +38,7 @@ Page({
             console.log(res)
             wx.hideLoading()
             if(res.code == 0) {
-                wx.setStorageSync('token', res.token)
+                wx.setStorageSync('token', res.result)
                 wx.switchTab({
                     url: '/pages/index/index',
                 })

@@ -17,7 +17,7 @@
         <view class='img-box'>
             <block wx:for='{{tempFilePaths}}' wx:key='unique'>
                 <view class='preview-img-box'>
-                    <image class='preview-img' src='{{item}}' data-index='{{index}}' bindlongpress='showDeleteBtn'></image>
+                    <image class='preview-img' mode='aspectFill' src='{{item}}' data-index='{{index}}' bindlongpress='showDeleteBtn'></image>
                 </view>
             </block>
             <view class='delete-btn' wx:if='{{showDeleteBtn}}' style='position: absolute;left: {{left}}px; top: {{top}};px' bindtap='deleteTempFile'>

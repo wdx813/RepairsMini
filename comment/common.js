@@ -15,10 +15,17 @@ function register(url) {
 }
 
 /**
+ * 上传报修图片
+ */
+function uploadRepairImgs(filePath) {
+    return uploadFile('/core/res/upload/aa', filePath).then(res => res.data)
+}
+
+/**
  * 上传报修单
  */
-function createRepair() {
-
+function createRepair(data) {
+    return sendRequest('/cms/repair/app_create_repair', 'POST', data).then(res => res.data)
 }
 
 
@@ -62,20 +69,10 @@ function uploadFile(url, filePath, data) {
     })
 }
 
-/**
- * 上传多个文件
- */
-function uploadMoreImages(url, filePaths, data) {
-    var imgUrls = ''
-    for(var path in filePaths) {
-        uploadFile(url, path, data).then(res => {
-            console.log(res);
-        })
-    }
-}
-
 module.exports = {
     login,
     register,
-    uploadFile
+    uploadFile,
+    uploadRepairImgs,
+    createRepair
 }

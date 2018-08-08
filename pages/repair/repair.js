@@ -1,6 +1,6 @@
 // pages/repair/repair.js
 const common = require('../../comment/common.js')
-
+const util = require('../../utils/util.js')
 Page({
 
     /**
@@ -10,14 +10,14 @@ Page({
         showChooseBtn: true,
         showDeleteBtn: false,
         left: 0,
-        top: 0, 
+        top: 0,
         index: 0,
         tempFilePaths: [],
-        tempFiles: [],
         repairTheme: '',
         repairType: '',
         repairTypeIndex: 0,
-        repairContent: ''
+        repairContent: '',
+        imgs: ''
     },
 
     /**
@@ -29,7 +29,10 @@ Page({
         wx.showActionSheet({
             itemList: repairTypeList,
             success: res => {
-                that.setData({ repairType: repairTypeList[res.tapIndex], repairTypeIndex: res.tapIndex + 1 })
+                that.setData({
+                    repairType: repairTypeList[res.tapIndex],
+                    repairTypeIndex: res.tapIndex + 1
+                })
             }
         })
     },
@@ -44,10 +47,37 @@ Page({
             success: function(res) {
                 var showChooseBtn = res.tempFilePaths.length < 4 ? true : false
                 that.setData({
-                    tempFilePaths: res.tempFilePaths,
-                    tempFiles: res.tempFiles,
-                    showChooseBtn: showChooseBtn
+                    tempFilePaths: res.tempFilePaths
                 })
+                wx.showLoading({
+                    title: '正在上传...',
+                })
+                var i = 0
+                for (let index in res.tempFilePaths) {
+                    var imgs = that.data.imgs
+                    let path = res.tempFilePaths[index]
+                    common.uploadRepairImgs(path).then(res => {
+                        res = JSON.parse(res)[0]
+                        if (res.state == 'SUCCESS') {
+                            if (that.data.tempFilePaths.length == (index + 1)) {
+                                imgs += res.url
+                            } else {
+                                imgs += res.url + ';'
+                            }
+                            i++
+                            if (i == that.data.tempFilePaths.length) {
+                                wx.hideLoading()
+                                that.setData({
+                                    showChooseBtn: showChooseBtn,
+                                    imgs: imgs
+                                })
+                            }
+                        } else {
+                            util.showToast('上传图片失败')
+                        }
+                    })
+                }
+                
             }
         })
     },
@@ -56,43 +86,52 @@ Page({
      * 提交
      */
 
-    bindSubmit: function (e) {
-        // var pairtheme = e.detail.value.pairtheme.trim()
-        // var repairType = this.data.repairTypeIndex
-        // var paorcontent = e.detail.value.paorcontent.trim()
-        // if (pairtheme == "") {
-        //     wx.showToast({
-        //         title: '报修主题不能为空',
-        //         icon: 'none',
-        //         duration: 2000
-        //     })
-        //     return
-        // }
+    bindSubmit: function(e) {
+        let pairtheme = e.detail.value.pairtheme.trim()
+        let repairType = this.data.repairTypeIndex
+        let paorcontent = e.detail.value.paorcontent.trim()
+        if (pairtheme == "") {
+            wx.showToast({
+                title: '报修主题不能为空',
+                icon: 'none',
+                duration: 2000
+            })
+            return
+        }
 
-        // if (repairType == 0) {
-        //     wx.showToast({
-        //         title: '报修类型不能为空',
-        //         icon: 'none',
-        //         duration: 2000
-        //     })
-        //     return
-        // }
+        if (repairType == 0) {
+            wx.showToast({
+                title: '报修类型不能为空',
+                icon: 'none',
+                duration: 2000
+            })
+            return
+        }
 
-        // if (paorcontent == "") {
-        //     wx.showToast({
-        //         title: '报修内容不能为空',
-        //         icon: 'none',
-        //         duration: 2000
-        //     })
-        //     return
-        // }
+        if (paorcontent == "") {
+            wx.showToast({
+                title: '报修内容不能为空',
+                icon: 'none',
+                duration: 2000
+            })
+            return
+        }
 
-        var path = this.data.tempFilePaths[0]
-        console.log(path)
-        common.uploadFile('/core/res/upload/repairimgs', path).then(res => {
+        let repairData = {
+            pairtheme: pairtheme,
+            repairType: repairType,
+            paorcontent: paorcontent,
+            imgs: this.data.imgs
+        }
+        console.log(repairData)
+        common.createRepair(repairData).then(res => {
             console.log(res)
+            if(res.ok) {
+                util.showToast('报修成功')
+            } else {
+                util.showToast('报修失败')
+            }
         })
-
 
     },
 
@@ -103,14 +142,21 @@ Page({
         var left = e.currentTarget.offsetLeft
         var top = e.currentTarget.offsetTop
         var index = e.currentTarget.dataset.index
-        this.setData({left: left, top: top, showDeleteBtn: true, index: index})
+        this.setData({
+            left: left,
+            top: top,
+            showDeleteBtn: true,
+            index: index
+        })
     },
 
     /**
      * 隐藏删除按钮
      */
     hideDeleteBtn: function() {
-        this.setData({showDeleteBtn: false})
+        this.setData({
+            showDeleteBtn: false
+        })
     },
 
     /**
@@ -131,7 +177,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-    
+
     },
 
     /**

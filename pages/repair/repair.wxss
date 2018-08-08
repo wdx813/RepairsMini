@@ -57,6 +57,7 @@
 textarea {
     width: 97%;
     height: 95%;
+    font-size: 32rpx;
 }
 
 .placeholder {

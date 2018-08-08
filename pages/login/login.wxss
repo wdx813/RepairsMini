@@ -30,6 +30,13 @@
     border-bottom-right-radius: 20px;
 }
 
+form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .title-view {
     height: 100rpx;
     width: 640rpx;
@@ -50,12 +57,10 @@
 }
 
 .edit-area {
-    width: 285px;
-    height: 230px;
+    width: 100%;
     color: #fff;
     position: relative;
     top: 40rpx;
-    left: 40rpx;
 }
 
 .input-txt {
@@ -66,6 +71,7 @@
 
 .input-view {
     height: 90rpx;
+    width: 100%;
     background-color: #d2d7e2;
     border-radius: 8px;
     display: flex;
@@ -75,7 +81,7 @@
 
 .input-view input {
     height: 80rpx;
-    width: 260px;
+    width: 93%;
 }
 
 .placeholder {
@@ -87,6 +93,8 @@
     justify-content: space-around;
     align-items: center;
     color: #fff;
+    position: relative;
+    top: 100rpx;
 }
 
 .line {
@@ -99,7 +107,7 @@
     display: flex;
     justify-content: space-around;
     position: relative;
-    top: 50rpx;
+    top: 150rpx;
 }
 
 .register {
