@@ -165,10 +165,8 @@ Page({
     deleteTempFile: function() {
         var index = this.data.index
         this.data.tempFilePaths.splice(index, 1)
-        this.data.tempFiles.splice(index, 1)
         this.setData({
             tempFilePaths: this.data.tempFilePaths,
-            tempFiles: this.data.tempFiles,
             showChooseBtn: true
         })
     },

@@ -18,7 +18,7 @@ function register(url) {
  * 上传报修图片
  */
 function uploadRepairImgs(filePath) {
-    return uploadFile('/core/res/upload/aa', filePath).then(res => res.data)
+    return uploadFile('/core/res/upload/repairimgs', filePath).then(res => res.data)
 }
 
 /**
@@ -58,7 +58,7 @@ function uploadFile(url, filePath, data) {
         wx.uploadFile({
             url: baseUrl + url,
             filePath: filePath,
-            name: 'file',
+            name: 'img',
             formData: data,
             header: {
                 'Authorization': token
