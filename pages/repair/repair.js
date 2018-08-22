@@ -124,7 +124,9 @@ Page({
             imgs: this.data.imgs
         }
         console.log(repairData)
-        common.createRepair(repairData).then(res => {
+        let url = '/cms/repair/app_create_repair?pairtheme=' + pairtheme + '&repairType=' + repairType + '&paorcontent=' + paorcontent + '&imgs=' + this.data.imgs
+        console.log(url)
+        common.createRepair(url).then(res => {
             console.log(res)
             if(res.ok) {
                 util.showToast('报修成功')

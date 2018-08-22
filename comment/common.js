@@ -24,8 +24,8 @@ function uploadRepairImgs(filePath) {
 /**
  * 上传报修单
  */
-function createRepair(data) {
-    return sendRequest('/cms/repair/app_create_repair', 'POST', data).then(res => res.data)
+function createRepair(url) {
+    return sendRequest(url, 'GET').then(res => res.data)
 }
 
 
