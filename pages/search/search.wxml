@@ -1,6 +1,39 @@
 <!--pages/search/search.wxml-->
-<import src='../../template/search-box/search-box' />
 <view class='container'>
-    <template is='search-box' />
-    <view class='line'></view>
+    <view class='search-box'>
+        <view class='input-box'>
+            <image class='search-icon' src='../../images/search-icon.png'></image>
+            <input type='text' name='keyword' placeholder='请输入关键字' placeholder-class='placeholder' value='{{keyword}}' bindinput='bindInputKeyword'></input>
+        </view>
+        <view class='status-box'>
+            <view>状态：</view>
+            <view class='{{isSelected1 ? "status-selected-1" : "status"}}' data-status='1' bindtap='bindChangeStatus'>提交</view>
+            <view class='{{isSelected2 ? "status-selected-2" : "status"}}' data-status='2' bindtap='bindChangeStatus'>受理</view>
+            <view class='{{isSelected3 ? "status-selected-3" : "status"}}' data-status='3' bindtap='bindChangeStatus'>完成</view>
+            <view class='{{isSelected4 ? "status-selected-4" : "status"}}' data-status='4' bindtap='bindChangeStatus'>已评价</view>
+            <view class='{{isSelected5 ? "status-selected-5" : "status"}}' data-status='5' bindtap='bindChangeStatus'>强制结束</view>
+        </view>
+        <view class='btn-box'>
+            <button class='search-btn' bindtap='bindSubmit'>搜索</button>
+            <button class='search-btn' bindtap='bindReset'>重置</button>
+        </view>
+        <view class='line'></view>
+    </view>
+    <view class='repair-list'>
+        <view class='repair-item' wx:for='{{repairList}}' wx:key='unique'>
+            <view class='repair-item-row'>
+                <view class='repair-item-col'>报修编号：{{item.paircod}}</view>
+                <view class='repair-item-col'><view class='repair-item-txt'>报修状态：</view><view class='{{item.status.style}}'>{{item.status.str}}</view></view>
+            </view>
+            <view class='repair-item-row'>
+                <view class='repair-item-col'>报修类型：{{item.repairTypeStr}}</view>
+                <view class='repair-item-col'><view class='repair-item-txt'>报修人：</view>{{item.creatorname}}</view>
+            </view>
+            <view class='repair-item-row'>报修主题：{{item.pairtheme}}</view>
+            <view class='repair-item-row'>报修内容：{{item.paorcontent}}</view>
+            <view class='repair-item-row'>报修时间：{{item.createtime}}</view>
+        </view>
+    </view>
+    <i-load-more wx:if='{{showLoading}}' tip="玩命加载中..." loading="{{true}}" />
+    <i-load-more wx:if='{{showFootLine}}' tip="我是有底线的" loading="{{false}}" />
 </view>

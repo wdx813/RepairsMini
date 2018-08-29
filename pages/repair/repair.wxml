@@ -9,6 +9,10 @@
         <view class='type-box' bindtap='bindChooseRepairType'>
             <input class='type' type='text' name='' disabled='true' value='{{repairType}}'></input>
         </view>
+        <view class='title'>报修地点</view>
+        <view class='theme-box'>
+            <input class='theme' type='text' name='address'></input>
+        </view>
         <view class='title'>报修内容</view>
         <view class='textarea-box'>
             <textarea name='paorcontent' maxlength='-1' placeholder='请输入对问题的描述，可输入1000字' placeholder-class='placeholder'></textarea>

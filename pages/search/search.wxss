@@ -1,8 +1,157 @@
 /* pages/search/search.wxss */
-@import '../../template/search-box/search-box';
+.search-box {
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-box {
+    width: 95%;
+    height: 70rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eee;
+    border-radius: 10rpx;
+    margin: 10rpx;
+    font-size: 15px;
+}
+
+.search-icon {
+    width: 48rpx;
+    height: 48rpx;
+}
+
+input {
+    width: 97%;
+    height: 80%;
+}
+
+.status-box {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    margin: 18rpx 0;
+    color: #777;
+}
+
+.status {
+    border: 1rpx solid #aaa;
+    padding: 7rpx;
+    margin: 0 10rpx;
+    border-radius: 7rpx;
+    font-size: 13px;
+}
+
+.status-selected-1 {
+    color: #fff;
+    border: 1rpx solid #ccc;
+    background-color: #ccc;
+    padding: 7rpx;
+    margin: 0 10rpx;
+    font-size: 13px;
+    border-radius: 7rpx;
+    height: 35rpx;
+}
+
+.status-selected-2 {
+    color: #fff;
+    border: 1rpx solid #1e9fff;
+    background-color: #1e9fff;
+    padding: 7rpx;
+    margin: 0 10rpx;
+    font-size: 13px;
+    border-radius: 7rpx;
+    height: 35rpx;
+}
+
+.status-selected-3 {
+    color: #fff;
+    border: 1rpx solid #009688;
+    background-color: #009688;
+    padding: 7rpx;
+    margin: 0 10rpx;
+    font-size: 13px;
+    border-radius: 7rpx;
+    height: 35rpx;
+}
+
+.status-selected-4 {
+    color: #fff;
+    border: 1rpx solid #ffb800;
+    background-color: #ffb800;
+    padding: 7rpx;
+    margin: 0 10rpx;
+    font-size: 13px;
+    border-radius: 7rpx;
+    height: 35rpx;
+}
+
+.status-selected-5 {
+    color: #fff;
+    border: 1rpx solid #ff5722;
+    background-color: #ff5722;
+    padding: 7rpx;
+    margin: 0 10rpx;
+    font-size: 13px;
+    border-radius: 7rpx;
+    height: 35rpx;
+}
+
+.btn-box {
+    width: 100%;
+    text-align: right;
+    margin: 10rpx 0;
+}
+
+.search-btn {
+    width: 120rpx;
+    height: 60rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4ba7e7;
+    color: #fff;
+    float: right;
+    margin-right: 20rpx;
+    font-size: 15px;
+}
 
 .line {
     background-color: #eee;
     width: 100%;
-    height: 10rpx;
+    height: 5rpx;
+    margin-top: 10rpx;
+}
+
+.repair-list {
+    width: 100%;
+}
+
+.repair-item {
+    width: 100%;
+    padding: 15rpx 20rpx;
+    box-sizing: border-box;
+    border-bottom: 1rpx solid #eee;
+    font-size: 15px;
+    color: #777;
+}
+
+.repair-item-row {
+    display: flex;
+    height: 60rpx;
+}
+
+.repair-item-col {
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.repair-item-txt {
+    width: 80px;
+    text-align: right;
 }

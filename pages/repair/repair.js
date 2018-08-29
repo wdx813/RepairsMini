@@ -59,7 +59,7 @@ Page({
                     common.uploadRepairImgs(path).then(res => {
                         res = JSON.parse(res)[0]
                         if (res.state == 'SUCCESS') {
-                            if (that.data.tempFilePaths.length == (index + 1)) {
+                            if (that.data.tempFilePaths.length == (parseInt(index) + 1)) {
                                 imgs += res.url
                             } else {
                                 imgs += res.url + ';'
@@ -89,31 +89,25 @@ Page({
     bindSubmit: function(e) {
         let pairtheme = e.detail.value.pairtheme.trim()
         let repairType = this.data.repairTypeIndex
+        let address = e.detail.value.address.trim()
         let paorcontent = e.detail.value.paorcontent.trim()
         if (pairtheme == "") {
-            wx.showToast({
-                title: '报修主题不能为空',
-                icon: 'none',
-                duration: 2000
-            })
+            util.showToast('报修主题不能为空')
             return
         }
 
         if (repairType == 0) {
-            wx.showToast({
-                title: '报修类型不能为空',
-                icon: 'none',
-                duration: 2000
-            })
+            util.showToast('报修类型不能为空')
+            return
+        }
+
+        if (address == "") {
+            util.showToast('报修地点不能为空')
             return
         }
 
         if (paorcontent == "") {
-            wx.showToast({
-                title: '报修内容不能为空',
-                icon: 'none',
-                duration: 2000
-            })
+            util.showToast('报修内容不能为空')
             return
         }
 
@@ -121,15 +115,21 @@ Page({
             pairtheme: pairtheme,
             repairType: repairType,
             paorcontent: paorcontent,
-            imgs: this.data.imgs
+            imgs: this.data.imgs,
+            address: address
         }
         console.log(repairData)
-        let url = '/cms/repair/app_create_repair?pairtheme=' + pairtheme + '&repairType=' + repairType + '&paorcontent=' + paorcontent + '&imgs=' + this.data.imgs
+        let url = '/cms/repair/app_create_repair?pairtheme=' + pairtheme + '&repairType=' + repairType + '&paorcontent=' + paorcontent + '&imgs=' + this.data.imgs + '&address=' + address
         console.log(url)
         common.createRepair(url).then(res => {
             console.log(res)
             if(res.ok) {
                 util.showToast('报修成功')
+                setTimeout(function() {
+                    wx.switchTab({
+                        url: '/pages/index/index',
+                    })
+                }, 2000)
             } else {
                 util.showToast('报修失败')
             }

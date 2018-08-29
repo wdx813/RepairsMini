@@ -28,6 +28,13 @@ function createRepair(url) {
     return sendRequest(url, 'GET').then(res => res.data)
 }
 
+/**
+ * 查询报修单
+ */
+function queryRepair(url) {
+    return sendRequest(url, 'GET').then(res => res.data)
+}
+
 
 /**
  * 封装请求函数
@@ -70,9 +77,11 @@ function uploadFile(url, filePath, data) {
 }
 
 module.exports = {
+    baseUrl,
     login,
     register,
     uploadFile,
     uploadRepairImgs,
-    createRepair
+    createRepair,
+    queryRepair
 }
