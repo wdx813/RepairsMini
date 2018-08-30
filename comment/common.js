@@ -35,6 +35,12 @@ function queryRepair(url) {
     return sendRequest(url, 'GET').then(res => res.data)
 }
 
+/**
+ * 获取报修详情
+ */
+function getRepairDetail(url) {
+    return sendRequest(url, 'GET').then(res => res.data)
+}
 
 /**
  * 封装请求函数
@@ -83,5 +89,6 @@ module.exports = {
     uploadFile,
     uploadRepairImgs,
     createRepair,
-    queryRepair
+    queryRepair,
+    getRepairDetail
 }

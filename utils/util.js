@@ -1,3 +1,5 @@
+const baseUrl = 'https://www.wgxy.org'
+
 const formatTime = date => {
     const year = date.getFullYear()
     const month = date.getMonth() + 1
@@ -77,8 +79,73 @@ const formatRepairList = repairList => {
     return repairList
 }
 
+
+const formatRepairDetail = repair => {
+    // 格式化报修类型
+    let repairTypeStr = ''
+    switch (parseInt(repair.repairType)) {
+        case 1:
+            repairTypeStr = '水电设施'
+            break
+        case 2:
+            repairTypeStr = '环境设施'
+            break
+        case 3:
+            repairTypeStr = '生活设施'
+            break
+    }
+    repair.repairTypeStr = repairTypeStr
+    //格式化状态
+    let statusStr = ''
+    switch (repair.status) {
+        case 1:
+            statusStr = '提交'
+            break
+        case 2:
+            statusStr = '受理'
+            break
+        case 3:
+            statusStr = '完成'
+            break
+        case 4:
+            statusStr = '已评价'
+            break
+        case 5:
+            statusStr = '强制结束'
+            break
+    }
+    repair.statusStr = statusStr
+    // 格式化图片
+    if (repair.imgs && repair.imgs.length > 0) {
+        let imgArray = []
+        let tempArray = repair.imgs.split(';')
+        for (let index in tempArray) {
+            if (tempArray[index]) {
+                let url = baseUrl + tempArray[index]
+                imgArray.push(url)
+            }
+        }
+        repair.imgArray = imgArray
+    }
+
+    // 格式化反馈图片
+    if (repair.opinionimg && repair.opinionimg.length > 0) {
+        let opinionImgArray = []
+        let tempArray = repair.opinionimg.split(';')
+        for (let index in tempArray) {
+            if (tempArray[index]) {
+                let url = baseUrl + tempArray[index]
+                opinionImgArray.push(url)
+            }
+        }
+        repair.opinionImgArray = opinionImgArray
+    }
+    return repair
+}
+
 module.exports = {
     formatTime: formatTime,
     showToast: showToast,
-    formatRepairList: formatRepairList
+    formatRepairList: formatRepairList,
+    formatRepairDetail: formatRepairDetail
 }

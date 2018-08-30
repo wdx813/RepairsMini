@@ -11,16 +11,15 @@ Page({
         windowHeight: 0,
         keyword: '',
         status: '',
-        isSelected1: false,
-        isSelected2: false,
-        isSelected3: false,
-        isSelected4: false,
-        isSelected5: false,
+        statusStr: '单据状态',
         currentPage: 1,
         hasMore: true,
         repairList: []
     },
 
+    /**
+     * 输入关键字
+     */
     bindInputKeyword: function(e) {
         let keyword = e.detail.value.trim()
         this.setData({ keyword: keyword })
@@ -29,77 +28,19 @@ Page({
     /**
      * 选择状态
      */
-    bindChangeStatus: function(e) {
-        let index = e.currentTarget.dataset.status
-        switch(parseInt(index)) {
-            case 1:
+    bindChangeStatus: function() {
+        let statusList = ['提交', '受理', '完成', '已评价', '强制结束']
+        wx.showActionSheet({
+            itemList: statusList,
+            success: res => {
+                let status = res.tapIndex + 1
                 this.setData({
-                    isSelected1: true,
-                    isSelected2: false,
-                    isSelected3: false,
-                    isSelected4: false,
-                    isSelected5: false,
-                    status: index
+                    status: status,
+                    statusStr: statusList[res.tapIndex]
                 })
-                break
-            case 2:
-                this.setData({
-                    isSelected1: false,
-                    isSelected2: true,
-                    isSelected3: false,
-                    isSelected4: false,
-                    isSelected5: false,
-                    status: index
-                })
-                break
-            case 3:
-                this.setData({
-                    isSelected1: false,
-                    isSelected2: false,
-                    isSelected3: true,
-                    isSelected4: false,
-                    isSelected5: false,
-                    status: index
-                })
-                break
-            case 4:
-                this.setData({
-                    isSelected1: false,
-                    isSelected2: false,
-                    isSelected3: false,
-                    isSelected4: true,
-                    isSelected5: false,
-                    status: index
-                })
-                break
-            case 5:
-                this.setData({
-                    isSelected1: false,
-                    isSelected2: false,
-                    isSelected3: false,
-                    isSelected4: false,
-                    isSelected5: true,
-                    status: index
-                })
-                break
-        }
-    },
-
-    /**
-     * 重置查询条件
-     */
-    bindReset: function() {
-        this.setData({
-            isSelected1: false,
-            isSelected2: false,
-            isSelected3: false,
-            isSelected4: false,
-            isSelected5: false,
-            status: '',
-            keyword: '',
-            showLoading: false,
-            showFootLine: false
+            }
         })
+        
     },
 
     /**
@@ -115,12 +56,14 @@ Page({
         this.queryRepair(1)
     },
 
+    /**
+     * 查询报修单
+     */
     queryRepair: function(page) {
         let that = this
         let keyword = this.data.keyword
         let status = this.data.status
         let url = '/cms/repair/app_quaryall_repair?pageSize=10&field=createtime&queryAll=N&order=desc&page=' + page + '&keyword' + keyword + '&tatus=' + status
-        console.log(url)
         this.setData({ showLoading: true })
         common.queryRepair(url).then(res => {
             console.log(res)
@@ -153,12 +96,21 @@ Page({
         })
     },
 
+    /**
+     * 报修详情
+     */
+    toRepairDetail: function(e) {
+        let repairId = e.currentTarget.dataset.id
+        wx.navigateTo({
+            url: '/pages/repair-detail/repair-detail?repairId=' + repairId,
+        })
+    },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-
+        this.queryRepair(1)
     },
 
     /**

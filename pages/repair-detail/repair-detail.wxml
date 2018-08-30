@@ -1,0 +1,99 @@
+<!--pages/repair-detail/repair-detail.wxml-->
+<view class='contain'>
+    <!-- 基本信息 -->
+    <view class='module-box'>
+        <view class='module-title'>基本信息</view>
+        <view class='basic-info-box'>
+            <view class='basic-info-row'>
+                <view class='basic-info-title'>报修主题</view>
+                <view>{{repair.pairtheme}}</view>
+            </view>
+            <view class='basic-info-row'>
+                <view class='basic-info-col basic-info-col-left'>
+                    <view class='basic-info-title'>报修编号</view>
+                    <view>{{repair.paircod}}</view>
+                </view>
+                <view class='basic-info-col'>
+                    <view class='basic-info-title'>上报时间</view>
+                    <view>{{repair.createtime}}</view>
+                </view>
+            </view>
+            <view class='basic-info-row'>
+                <view class='basic-info-col basic-info-col-left'>
+                    <view class='basic-info-title'>报修人</view>
+                    <view>{{repair.creatorname}}</view>
+                </view>
+                <view class='basic-info-col'>
+                    <view class='basic-info-title'>联系方式</view>
+                    <view>{{repair.createPhon}}</view>
+                </view>
+            </view>
+            <view class='basic-info-row'>
+                <view class='basic-info-col basic-info-col-left'>
+                    <view class='basic-info-title'>报修类型</view>
+                    <view>{{repair.repairTypeStr}}</view>
+                </view>
+                <view class='basic-info-col'>
+                    <view class='basic-info-title'>报修状态</view>
+                    <view>{{repair.statusStr}}</view>
+                </view>
+            </view>
+            <view class='basic-info-row'>
+                <view class='basic-info-col basic-info-col-left'>
+                    <view class='basic-info-title'>处理人</view>
+                    <view>{{repair.disposename}}</view>
+                </view>
+                <view class='basic-info-col'>
+                    <view class='basic-info-title'>处理时间</view>
+                    <view>{{repair.disposetime}}</view>
+                </view>
+            </view>
+            <view class='basic-info-row'>
+                <view class='basic-info-title'>报修点</view>
+                <view>{{repair.address}}</view>
+            </view>
+            <view class='basic-info-item'>
+                <view class='basic-info-title'>报修详情</view>
+                <view class='item-content'>{{repair.paorcontent}}</view>
+            </view>
+        </view>
+    </view>
+    <!-- 图片信息 -->
+    <view class='module-box'>
+        <view class='module-title'>图片信息</view>
+        <view class='img-info-box'>
+            <image class='repair-img' src='{{item}}' data-url='{{item}}' wx:for='{{repair.imgArray}}' wx:key='unique' bindtap='previewRepairImg'></image>
+        </view>
+    </view>
+    <!-- 处理信息 -->
+    <view class='module-box' wx:if='{{repair.status == 3 || repair.status == 4}}'>
+        <view class='module-title'>处理信息</view>
+        <view class='feedback-box'>
+            <view class='feedback-item'>
+                <view class='basic-info-title'>处理反馈</view>
+                <view class='item-content'>{{repair.opinion}}</view>
+            </view>
+            <view class='feedback-item'>
+                <view class='basic-info-title'>反馈图片</view>
+                <view class='img-info-box'>
+                    <image class='repair-img' src='{{baseUrl + item}}' data-url='{{baseUrl + item}}' wx:for='{{repair.opinionImgArray}}' wx:key='unique' bindtap='previewRepairImg'></image>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 评价信息 -->
+    <view class='module-box' wx:if='{{repair.status == 4}}'>
+        <view class='module-title'>评价信息</view>
+        <view class='comment-box'>
+            <view class='basic-info-row'>
+                <view class='basic-info-title'>评分</view>
+                <view><i-rate value='{{repair.score}}'></i-rate></view>
+            </view>
+            <view class='basic-info-item'>
+                <view class='basic-info-title'>评语</view>
+                <view class='item-content'>{{repair.evaluate}}</view>
+            </view>
+        </view>
+    </view>
+</view>
