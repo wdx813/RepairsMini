@@ -11,7 +11,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.1.1",
+	"libVersion": "2.2.4",
 	"appid": "wx22e48525433a9d34",
 	"projectname": "RepairsMini",
 	"isGameTourist": false,

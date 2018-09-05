@@ -14,7 +14,8 @@ Page({
         statusStr: '单据状态',
         currentPage: 1,
         hasMore: true,
-        repairList: []
+        repairList: [],
+        footLineMsg: ''
     },
 
     /**
@@ -63,7 +64,7 @@ Page({
         let that = this
         let keyword = this.data.keyword
         let status = this.data.status
-        let url = '/cms/repair/app_quaryall_repair?pageSize=10&field=createtime&queryAll=N&order=desc&page=' + page + '&keyword' + keyword + '&tatus=' + status
+        let url = '/cms/repair/app_quaryall_repair?pageSize=10&field=createtime&queryAll=N&order=desc&page=' + page + '&keyword' + keyword + '&status=' + status
         this.setData({ showLoading: true })
         common.queryRepair(url).then(res => {
             console.log(res)
@@ -71,10 +72,10 @@ Page({
                 if (res.rows) {
                     let repairList = util.formatRepairList(res.rows)
                     console.log(repairList)
+                    that.setData({ currentPage: page})
                     setTimeout(function() {
                         that.setData({
                             repairList: that.data.repairList.concat(repairList),
-                            currentPage: page,
                             showLoading: false
                         })
                     }, 400)
@@ -84,8 +85,12 @@ Page({
                         showFootLine: true,
                         showLoading: false
                     })
+                    if(page == 1) {
+                        this.setData({footLineMsg: '暂无数据'})
+                    } else {
+                        this.setData({ footLineMsg: '我是有底线的' })
+                    }
                 }
-                
             } else if(res.code == 1023) {
                 wx.reLaunch({
                     url: '/pages/login/login',

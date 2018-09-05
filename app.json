@@ -1,14 +1,12 @@
 {
     "pages": [
-        
-        "pages/search/search",
-        
         "pages/login/login",
         "pages/register/register",
         "pages/index/index",
         "pages/mine/mine",
         "pages/repair/repair",
         "pages/repair-detail/repair-detail",
+        "pages/search/search",
         "pages/comment/comment",
         "pages/bulletin-list/bulletin-list",
         "pages/bulletin-detail/bulletin-detail"

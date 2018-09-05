@@ -36,5 +36,5 @@
         </view>
     </view>
     <i-load-more wx:if='{{showLoading}}' tip="玩命加载中..." loading="{{true}}" />
-    <i-load-more wx:if='{{showFootLine}}' tip="我是有底线的" loading="{{false}}" />
+    <i-load-more wx:if='{{showFootLine}}' tip="{{footLineMsg}}" loading="{{false}}" />
 </view>
