@@ -7,7 +7,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-      repair: {},
+      stars: [0, 1, 2, 3, 4],
+      normalSrc: '../../images/normal.png',
+      selectedSrc: '../../images/selected.png',
+      halfSrc: '../../images/half.png',
+      repair: {
+          'score': 3.5
+      },
   },
 
   /**

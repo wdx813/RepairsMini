@@ -1,6 +1,6 @@
 // pages/login/login.js
 const common = require('../../comment/common.js')
-
+const util = require('../../utils/util.js')
 Page({
 
     /**
@@ -16,19 +16,11 @@ Page({
         var loginName = e.detail.value.loginName.trim()
         var password = e.detail.value.password.trim()
         if(!loginName || loginName == "") {
-            wx.showToast({
-                title: '登录名不能为空',
-                icon: 'none',
-                duration: 2000
-            })
+            util.showToast('登录名不能为空')
             return
         }
         if(!password || password == "") {
-            wx.showToast({
-                title: '密码不能为空',
-                icon: 'none',
-                duration: 2000
-            })
+            util.showToast('密码不能为空')
             return
         }
         wx.showLoading({
@@ -37,23 +29,15 @@ Page({
         common.login('/core/appuser/appuserlogin?loginName=' + loginName + '&password=' + password).then(res => {
             console.log(res)
             wx.hideLoading()
-            if(res.code == 0) {
+            if(res && res.code == 0) {
                 wx.setStorageSync('token', res.result)
                 wx.switchTab({
                     url: '/pages/index/index',
                 })
-            } else if(res.code == 2) {
-                wx.showToast({
-                    title: res.msg,
-                    icon: 'none',
-                    duration: 2000
-                })
+            } else if(res && res.code == 2) {
+                util.showToast(res.msg)
             } else {
-                wx.showToast({
-                    title: '服务器错误',
-                    icon: 'none',
-                    duration: 2000
-                })
+                util.showToast('服务器错误，请稍后重试')
             }
         })
     },

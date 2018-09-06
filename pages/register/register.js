@@ -1,6 +1,6 @@
 // pages/register/register.js
 const common = require('../../comment/common.js')
-
+const util = require('../../utils/util.js')
 Page({
 
     /**
@@ -24,53 +24,29 @@ Page({
         var userInfo = e.detail.value
         console.log(userInfo)
         if (!userInfo.loginName || userInfo.loginName.trim() == "") {
-            wx.showToast({
-                title: '登录名不能为空',
-                icon: 'none',
-                duration: 2000
-            })
+            util.showToast('登录名不能为空')
             return
         }
         if (!userInfo.realName || userInfo.realName.trim() == "") {
-            wx.showToast({
-                title: '真实姓名不能为空',
-                icon: 'none',
-                duration: 2000
-            })
+            util.showToast('真实姓名不能为空')
             return
         }
         if (!userInfo.password || userInfo.password.trim() == "") {
-            wx.showToast({
-                title: '密码不能为空',
-                icon: 'none',
-                duration: 2000
-            })
+            util.showToast('密码不能为空')
             return
         }
         if (!userInfo.mobile || userInfo.mobile.trim() == "") {
-            wx.showToast({
-                title: '密码不能为空',
-                icon: 'none',
-                duration: 2000
-            })
+            util.showToast('手机号不能为空')
             return
         } else {
             var phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/
             if (!phoneReg.test(userInfo.mobile.trim())) {
-                wx.showToast({
-                    title: '请输入有效的手机号',
-                    icon: 'none',
-                    duration: 2000
-                })
+                util.showToast('请输入有效的手机号')
                 return
             }
         }
         if (!userInfo.usertype || userInfo.usertype.trim() == "") {
-            wx.showToast({
-                title: '用户类型不能为空',
-                icon: 'none',
-                duration: 2000
-            })
+            util.showToast('用户类型不能为空')
             return
         }
         var url = '/core/appuser/register?loginName=' + userInfo.loginName + '&realName=' + userInfo.realName 
@@ -93,17 +69,9 @@ Page({
                     }
                 })
             } else if(res.code == 500) {
-                wx.showToast({
-                    title: '服务器错误',
-                    icon: 'none',
-                    duration: 2000
-                })
+                util.showToast('服务器错误')
             } else {
-                wx.showToast({
-                    title: '注册失败',
-                    icon: 'none',
-                    duration: 2000
-                })
+                util.showToast('注册失败')
             }
         })
     },

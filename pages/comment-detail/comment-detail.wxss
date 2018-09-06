@@ -1,4 +1,5 @@
-/* pages/repair-detail/repair-detail.wxss */
+/* pages/comment-detail/comment-detail.wxss */
+
 page, .contain {
     background-color: #eee;
 }
@@ -35,7 +36,7 @@ page, .contain {
 }
 
 .basic-info-col-left {
-    width: 40%
+    width: 40%;
 }
 
 .basic-info-title {

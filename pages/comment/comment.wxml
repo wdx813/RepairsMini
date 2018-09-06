@@ -1,2 +1,33 @@
 <!--pages/comment/comment.wxml-->
-<text>pages/comment/comment.wxml</text>
+<view class='container'>
+    <view class='search-box'>
+        <view class='input-box'>
+            <image class='search-icon' src='../../images/search-icon.png'></image>
+            <input type='text' name='keyword' placeholder='请输入关键字' placeholder-class='placeholder' value='{{keyword}}' bindinput='bindInputKeyword'></input>
+        </view>
+        <button class='search-btn' bindtap='bindSubmit'>搜索</button>
+    </view>
+    <view class='line'></view>
+    <view class='repair-list'>
+        <view class='repair-item' wx:for='{{repairList}}' wx:key='unique' data-id='{{item.id}}' bindtap='toRepairDetail'>
+            <view class='repair-item-row'>
+                <view class='repair-item-col'>报修编号：{{item.paircod}}</view>
+                <view class='repair-item-col'>
+                    <view class='repair-item-txt'>报修状态：</view>
+                    <view class='{{item.status.style}}'>{{item.status.str}}</view>
+                </view>
+            </view>
+            <view class='repair-item-row'>
+                <view class='repair-item-col'>报修类型：{{item.repairTypeStr}}</view>
+                <view class='repair-item-col'>
+                    <view class='repair-item-txt'>报修人：</view>{{item.creatorname}}</view>
+            </view>
+            <view class='repair-item-row'>报修主题：{{item.pairtheme}}</view>
+            <view class='repair-item-row'>报修地点：{{item.address}}</view>
+            <view class='repair-item-row'>报修内容：{{item.paorcontent}}</view>
+            <view class='repair-item-row'>报修时间：{{item.createtime}}</view>
+        </view>
+    </view>
+    <i-load-more wx:if='{{showLoading}}' tip="玩命加载中..." loading="{{true}}" />
+    <i-load-more wx:if='{{showFootLine}}' tip="{{footLineMsg}}" loading="{{false}}" />
+</view>

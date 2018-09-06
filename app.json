@@ -7,6 +7,7 @@
         "pages/repair/repair",
         "pages/repair-detail/repair-detail",
         "pages/search/search",
+        "pages/comment-detail/comment-detail",
         "pages/comment/comment",
         "pages/bulletin-list/bulletin-list",
         "pages/bulletin-detail/bulletin-detail"

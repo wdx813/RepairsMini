@@ -1,4 +1,4 @@
-<!--pages/repair-detail/repair-detail.wxml-->
+<!--pages/comment-detail/comment-detail.wxml-->
 <view class='contain'>
     <!-- 基本信息 -->
     <view class='module-box'>
@@ -66,7 +66,7 @@
         </view>
     </view>
     <!-- 处理信息 -->
-    <view class='module-box' wx:if='{{repair.status == 3 || repair.status == 4}}'>
+    <view class='module-box'>
         <view class='module-title'>处理信息</view>
         <view class='feedback-box'>
             <view class='feedback-item'>
@@ -83,15 +83,15 @@
     </view>
 
     <!-- 评价信息 -->
-    <view class='module-box' >
+    <view class='module-box'>
         <view class='module-title'>评价信息</view>
         <view class='comment-box'>
             <view class='basic-info-row'>
                 <view class='basic-info-title'>评分</view>
                 <block wx:for="{{stars}}" wx:key='unique'>
-                    <image class="star-image" src="{{repair.score > item ?(repair.score-item == 0.5?halfSrc:selectedSrc) : normalSrc}}">
-                        <view class="item item-left" style="left:0rpx" data-key="{{item+0.5}}"></view>
-                        <view class="item item-right" style="left:35rpx" data-key="{{item+1}}"></view>
+                    <image class="star-image" src="{{key > item ?(key-item == 0.5?halfSrc:selectedSrc) : normalSrc}}">
+                        <view class="item item-left" style="left:0rpx" data-key="{{item+0.5}}" bindtap="selectLeft"></view>
+                        <view class="item item-right" style="left:35rpx" data-key="{{item+1}}" bindtap="selectRight"></view>
                     </image>
                 </block>
             </view>

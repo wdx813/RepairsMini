@@ -1,10 +1,9 @@
-const utils = require('../utils/util.js')
 const baseUrl = 'https://www.wgxy.org'
 /**
  * 用户登录
  */
 function login(url) {
-    return sendRequest(url, 'GET').then(res => res.data)
+    return sendRequest(url, 'GET').then(res => res.data).catch(res => false)
 }
 
 /**
