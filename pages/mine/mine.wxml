@@ -1,2 +1,43 @@
 <!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+<view class='contain'>
+    <view class='userInfo-box'>
+        <view class='userInfo'>
+            <image class='avatar' src='../../images/avatar.png'></image>
+            <view class='nickname'>李四</view>
+            <view class='displayId'>13295357935</view>
+        </view>
+    </view>
+    <view class='wallet-box'>
+        <view class='tip-box-pwd'>
+            <view class='icon-box'>
+                <image class='icon' src='../../images/icon-my-pwd.png'></image>
+            </view>
+            <view class='tip-title'>修改密码</view>
+        </view>
+        <image class='icon-arrows' src='../../images/icon-arrows.png'></image>
+    </view>
+    <view class='publish-box'>
+        <view class='tip-box'>
+            <view class='icon-box'>
+                <image class='icon' src='../../images/icon-my-repair.png'></image>
+            </view>
+            <view class='tip-title'>我的申报</view>
+            <view class='tip-content'>
+                <view>一共申报123个问题</view>
+                <view>已被处理123个问题</view>
+            </view>
+        </view>
+    </view>
+    <view class='get-box'>
+        <view class='tip-box'>
+            <view class='icon-box'>
+                <image class='icon-comment' src='../../images/icon-my-comment.png'></image>
+            </view>
+            <view class='tip-title'>我的评价</view>
+            <view class='tip-content'>
+                <view>一共评价77次</view>
+                <view>其中好评66次</view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,1 +1,159 @@
 /* pages/mine/mine.wxss */
+page {
+    width: 100%;
+    height: 100%;
+}
+
+.contain {
+    width: 100%;
+    height: 100%;
+    background-color: #f6f6f6;
+}
+
+.userInfo-box {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.userInfo {
+    width: 100%;
+    height: 75%;
+    background-color: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar {
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 50%;
+    position: relative;
+    bottom: 75rpx;
+    border: 1px solid #1296db;
+    background-color: #fff;
+}
+
+.nickname {
+    position: relative;
+    bottom: 45rpx;
+}
+
+.displayId {
+    color: #909090;
+    font-size: 26rpx;
+    position: relative;
+    bottom: 35rpx;
+}
+
+.info-box {
+    width: 100%;
+    height: 45px;
+    background-color: #fff;
+    position: relative;
+    top: 40rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon-info {
+    width: 32px;
+    height: 22px;
+    margin-left: 30rpx;
+}
+
+.wallet-box {
+    width: 100%;
+    height: 45px;
+    background-color: #fff;
+    position: relative;
+    top: 40rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40rpx;
+}
+
+.icon-box {
+    width: 90rpx;
+    height: 64rpx;
+    margin-left: 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-comment {
+    width: 90rpx;
+    height: 64rpx;
+}
+
+.icon {
+    width: 64rpx;
+    height: 64rpx;
+}
+
+.publish-box {
+    width: 100%;
+    height: 45px;
+    background-color: #fff;
+    position: relative;
+    top: 40rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+}
+
+.get-box{
+    width: 100%;
+    height: 45px;
+    background-color: #fff;
+    position: relative;
+    top: 40rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tip-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: #777;
+}
+
+.tip-box-pwd {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: #777;
+}
+
+.tip-title {
+    margin-left: 30rpx;
+}
+
+.tip-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #8d8d8d;
+    font-size: 24rpx;
+    margin-left: 100rpx;
+}
+
+.icon-arrows {
+    width: 15px;
+    height: 25px;
+    position: relative;
+    right: 30rpx;
+}
