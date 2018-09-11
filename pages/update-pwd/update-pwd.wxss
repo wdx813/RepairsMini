@@ -1,0 +1,64 @@
+/* pages/update-pwd/update-pwd.wxss */
+@import "../../component/component.wxss";
+.contain {
+    width: 100%;
+    height: 100%;
+}
+
+swiper {
+    height: 80%;
+}
+
+.check-item {
+    width: 100%;
+    height: 100rpx;
+    padding: 15rpx 30rpx;
+    box-sizing: border-box;
+    display: flex;
+    border-bottom: 1rpx solid #eee;
+}
+
+.tip-title {
+    width: 180rpx;
+    height: 100%;
+    color: #495060;
+    font-size: 30rpx;
+    display: flex;
+    align-items: center;
+    margin-right: 15rpx;
+}
+
+.content {
+    height: 100%;
+    color: #777;
+    font-size: 30rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-box {
+    width: 80rpx;
+    height: 50rpx;
+    border: 1px solid #cfd4d3;
+    margin: 0 10rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.edit-box-focus {
+    width: 80rpx;
+    height: 50rpx;
+    border: 1px solid orange;
+    margin: 0 10rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.edit-box input {
+    text-align: center;
+}

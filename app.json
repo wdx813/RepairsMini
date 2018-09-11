@@ -4,6 +4,7 @@
         "pages/register/register",
         "pages/index/index",
         "pages/mine/mine",
+        "pages/update-pwd/update-pwd",
         "pages/repair/repair",
         "pages/repair-detail/repair-detail",
         "pages/search/search",

@@ -1,0 +1,61 @@
+<!--pages/update-pwd/update-pwd.wxml-->
+<view class='contain'>
+    <i-tabs current="{{ current }}" bindchange="handleTabChange">
+        <i-tab key="0" title="密码验证"></i-tab>
+        <i-tab key="1" title="身份验证"></i-tab>
+    </i-tabs>
+    <swiper bindchange='handleSwiperChange' current='{{current}}'>
+        <swiper-item>
+            <i-input value="{{ value1 }}" type="password" title="原密码"  placeholder="请输入原密码" />
+            <i-input value="{{ value2 }}" type="password" title="新密码" placeholder="请输入新密码" />
+            <i-input value="{{ value3 }}" type="password" title="确认新密码" placeholder="请再次输入新密码" />
+            <i-button bind:click="checkPwdSubmit" type="primary">确定</i-button>
+        </swiper-item>
+        <swiper-item>
+            <view class='checkIdentity-box'>
+                <view class='check-item'>
+                    <view class='tip-title'>手机号</view>
+                    <view class='content'>
+                        <view style='margin-right: 10rpx;'>132</view>
+                        <paySix 
+                            bindvalueSix="valueSix" 
+                            input_value="{{inputData.input_value}}" 
+                            value_length="{{inputData.value_length}}" 
+                            isNext="{{inputData.isNext}}" 
+                            get_focus="{{inputData.get_focus}}" 
+                            focus_class="{{inputData.focus_class}}" 
+                            value_num="{{inputData.value_num}}"
+                            height="{{inputData.height}}" 
+                            width="{{inputData.width}}" 
+                            see="{{inputData.see}}" 
+                            interval="{{inputData.interval}}">
+                        </paySix>
+                        <view>7935</view>
+                    </view>
+                </view>
+                <view class='check-item'>
+                    <view class='tip-title'>真实姓名</view>
+                    <view class='content'>
+                        <view class='{{focus ? "edit-box-focus" : "edit-box"}}'>
+                            <input type='text' maxlength='1' bindfocus='bindEditBoxFocus' bindblur='bindEditBoxBlur' bindinput='bindRealNameInput'></input>
+                        </view>
+                        <view>某某</view>
+                    </view>
+                </view>
+                <view class='check-item'>
+                    <view class='tip-title'>新密码</view>
+                    <view class='content'>
+                        <input type='password' placeholder='请输入新密码'></input>
+                    </view>
+                </view>
+                <view class='check-item'>
+                    <view class='tip-title'>确认新密码</view>
+                    <view class='content'>
+                        <input type='password' placeholder='请再次输入新密码'></input>
+                    </view>
+                </view>
+            </view>
+            <i-button bind:click="handleClick" type="primary">确定</i-button>
+        </swiper-item>
+    </swiper>
+</view>
