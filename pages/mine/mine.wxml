@@ -7,7 +7,7 @@
             <view class='displayId'>13295357935</view>
         </view>
     </view>
-    <view class='wallet-box'>
+    <view class='wallet-box' bindtap='toUpdatePwd'>
         <view class='tip-box-pwd'>
             <view class='icon-box'>
                 <image class='icon' src='../../images/icon-my-pwd.png'></image>

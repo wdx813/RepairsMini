@@ -5,13 +5,13 @@ Page({
      * 页面的初始数据
      */
     data: {
-        current: 1,
+        current: 0,
         // 输入框参数设置
         inputData: {
             input_value: "",//输入框的初始内容
             value_length: 0,//输入框密码位数
             isNext: true,//是否有下一步的按钮
-            get_focus: true,//输入框的聚焦状态
+            get_focus: false,//输入框的聚焦状态
             focus_class: true,//输入框聚焦样式
             value_num: [1, 2, 3, 4],//输入框格子数
             height: "50rpx",//输入框高度

@@ -115,3 +115,11 @@ page, .contain {
     position: relative;
     bottom: 140rpx;
 }
+
+.comment-content{
+    width: 100%;
+}
+
+.submit {
+    height: 120rpx;
+}

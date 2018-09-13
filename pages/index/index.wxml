@@ -25,6 +25,9 @@
             <view class='bulletin-title'>{{item.title}}</view>
             <view class='bulletin-time'>{{item.time}}</view>
         </view>
+        <!-- <i-notice-bar icon="systemprompt" loop>
+            2018年世界杯,将于6月14日至7月15日举行;2018年世界杯,将于6月14日至7月15日举行;
+        </i-notice-bar> -->
     </view>
     <view class='service-tip'>
         <view class='icon-tip'></view>

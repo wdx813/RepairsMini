@@ -83,12 +83,12 @@ Page({
     },
 
     /**
-     * 报修详情
+     * 评价详情
      */
     toRepairDetail: function (e) {
         let repairId = e.currentTarget.dataset.id
         wx.navigateTo({
-            url: '/pages/repair-detail/repair-detail?repairId=' + repairId,
+            url: '/pages/comment-detail/comment-detail?repairId=' + repairId,
         })
     },
 
@@ -96,7 +96,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        // this.queryRepair(1)
+        this.queryRepair(1)
     },
 
     /**

@@ -8,6 +8,12 @@ Page({
   
   },
 
+  toUpdatePwd: function() {
+      wx.navigateTo({
+          url: '/pages/update-pwd/update-pwd',
+      })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

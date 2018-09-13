@@ -10,6 +10,7 @@ Page({
         selectedSrc: '../../images/selected.png',
         halfSrc: '../../images/half.png',
         key: 0, //评分
+        comment: '',
     },
 
     //点击左边,半颗星
@@ -31,6 +32,14 @@ Page({
             key: key
         })
     },
+
+    /**
+     * 获取评价的内容
+     */
+    bindCommentInput: function(e) {
+        this.setData({ comment: e.detail.value})
+    },
+
 
     /**
      * 生命周期函数--监听页面加载

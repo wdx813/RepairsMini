@@ -97,8 +97,14 @@
             </view>
             <view class='basic-info-item'>
                 <view class='basic-info-title'>评语</view>
-                <view class='item-content'>{{repair.evaluate}}</view>
+                <view class='item-content'>
+                    <textarea class='comment-content' placeholder='请输入您的评价' bindinput='bindCommentInput'></textarea>
+                </view>
             </view>
         </view>
     </view>
+    <view class='submit'>
+        <i-button type='primary'>提交</i-button>
+    </view>
+    
 </view>
