@@ -42,6 +42,27 @@ function getRepairDetail(url) {
 }
 
 /**
+ * 获取用户详情
+ */
+function getUserInfo(url) {
+    return sendRequest(url, 'GET').then(res => res.data)
+}
+
+/**
+ * 获取用户的申报统计
+ */
+function getUserRepairCount(url) {
+    return sendRequest(url, 'GET').then(res => res.data)
+}
+
+/**
+ * 用户评价
+ */
+function commentRepair(url) {
+    return sendRequest(url, 'GET').then(res => res.data)
+}
+
+/**
  * 封装请求函数
  */
 function sendRequest(url, method, data) {
@@ -89,5 +110,7 @@ module.exports = {
     uploadRepairImgs,
     createRepair,
     queryRepair,
-    getRepairDetail
+    getRepairDetail,
+    getUserInfo,
+    getUserRepairCount,
 }

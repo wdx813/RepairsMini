@@ -1,4 +1,6 @@
 // pages/comment-detail/comment-detail.js
+const common = require('../../comment/common.js')
+const util = require('../../utils/util.js')
 Page({
 
     /**
@@ -11,6 +13,7 @@ Page({
         halfSrc: '../../images/half.png',
         key: 0, //评分
         comment: '',
+        repairId: ''
     },
 
     //点击左边,半颗星
@@ -40,12 +43,21 @@ Page({
         this.setData({ comment: e.detail.value})
     },
 
+    /**
+     * 提交评价
+     */
+    bindSubmitComment: function() {
+        let url = '/cms/repair/app_evalute_repair?id=' + this.data.repairId + '&evaluate=' + this.data.comment + '&score=' + this.data.key
+        console.log(url)
+    },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-
+        if(options.repairId) {
+            this.setData({repairId: options.repairId})
+        }
     },
 
     /**

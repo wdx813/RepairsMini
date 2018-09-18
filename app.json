@@ -1,9 +1,8 @@
 {
     "pages": [
-        "pages/index/index",
         "pages/login/login",
         "pages/register/register",
-        
+        "pages/index/index",
         "pages/mine/mine",
         "pages/update-pwd/update-pwd",
         "pages/repair/repair",

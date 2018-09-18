@@ -53,7 +53,7 @@ Page({
                     title: '正在上传...',
                 })
                 var i = 0
-                for (let index in res.tempFilePaths) {
+                for (let index = 0; index < res.tempFilePaths.length; index ++) {
                     var imgs = that.data.imgs
                     let path = res.tempFilePaths[index]
                     common.uploadRepairImgs(path).then(res => {
@@ -121,8 +121,12 @@ Page({
         console.log(repairData)
         let url = '/cms/repair/app_create_repair?pairtheme=' + pairtheme + '&repairType=' + repairType + '&paorcontent=' + paorcontent + '&imgs=' + this.data.imgs + '&address=' + address
         console.log(url)
+        wx.showLoading({
+            title: '正在提交，请稍候~',
+        })
         common.createRepair(url).then(res => {
             console.log(res)
+            wx.hideLoading()
             if(res.ok) {
                 util.showToast('报修成功')
                 setTimeout(function() {

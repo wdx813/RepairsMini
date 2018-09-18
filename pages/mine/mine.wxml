@@ -3,8 +3,8 @@
     <view class='userInfo-box'>
         <view class='userInfo'>
             <image class='avatar' src='../../images/avatar.png'></image>
-            <view class='nickname'>李四</view>
-            <view class='displayId'>13295357935</view>
+            <view class='nickname'>{{userInfo.loginName}}</view>
+            <view class='displayId'>{{userInfo.mobile}}</view>
         </view>
     </view>
     <view class='wallet-box' bindtap='toUpdatePwd'>
@@ -23,8 +23,8 @@
             </view>
             <view class='tip-title'>我的申报</view>
             <view class='tip-content'>
-                <view>一共申报123个问题</view>
-                <view>已被处理123个问题</view>
+                <view>一共申报{{repairCount.count}}个问题</view>
+                <view>已被处理{{repairCount.dispose}}个问题</view>
             </view>
         </view>
     </view>
@@ -35,8 +35,8 @@
             </view>
             <view class='tip-title'>我的评价</view>
             <view class='tip-content'>
-                <view>一共评价77次</view>
-                <view>其中好评66次</view>
+                <view>一共评价{{repairCount.evaluate}}次</view>
+                <view>其中好评{{repairCount.gEvaluate}}次</view>
             </view>
         </view>
     </view>
