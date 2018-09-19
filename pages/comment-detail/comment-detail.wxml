@@ -76,7 +76,7 @@
             <view class='feedback-item'>
                 <view class='basic-info-title'>反馈图片</view>
                 <view class='img-info-box'>
-                    <image class='repair-img' src='{{baseUrl + item}}' data-url='{{baseUrl + item}}' wx:for='{{repair.opinionImgArray}}' wx:key='unique' bindtap='previewRepairImg'></image>
+                    <image class='repair-img' src='{{item}}' data-url='{{item}}' wx:for='{{repair.opinionImgArray}}' wx:key='unique' bindtap='previewOpinionImg'></image>
                 </view>
             </view>
         </view>
@@ -104,7 +104,7 @@
         </view>
     </view>
     <view class='submit'>
-        <i-button type='primary'>提交</i-button>
+        <i-button type='primary' bindtap='bindSubmitComment'>提交</i-button>
     </view>
     
 </view>

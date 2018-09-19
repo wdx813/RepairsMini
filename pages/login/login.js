@@ -34,7 +34,7 @@ Page({
                 wx.switchTab({
                     url: '/pages/index/index',
                 })
-            } else if(res && res.code == 2) {
+            } else if(res && res.code) {
                 util.showToast(res.msg)
             } else {
                 util.showToast('服务器错误，请稍后重试')
@@ -106,6 +106,10 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function() {
-
+        return {
+            title: '报修，我们是认真的！',
+            path: '/pages/login/login',
+            imageUrl: '../../images/background.png'
+        }
     }
 })

@@ -12,7 +12,7 @@
             <i-button bind:click="checkPwdSubmit" type="primary">确定</i-button>
         </swiper-item>
         <swiper-item>
-            <view class='checkIdentity-box'>
+            <!-- <view class='checkIdentity-box'>
                 <view class='check-item'>
                     <view class='tip-title'>手机号</view>
                     <view class='content'>
@@ -54,7 +54,11 @@
                         <input type='password' placeholder='请再次输入新密码'></input>
                     </view>
                 </view>
-            </view>
+            </view> -->
+            <i-input value="" type="password" title="手机号"  placeholder="请输入手机号" />
+            <i-input value="" type="password" title="真实姓名"  placeholder="请输入真实姓名" />
+            <i-input value="" type="password" title="新密码" placeholder="请输入新密码" />
+            <i-input value="" type="password" title="确认新密码" placeholder="请再次输入新密码" />
             <i-button bind:click="handleClick" type="primary">确定</i-button>
         </swiper-item>
     </swiper>

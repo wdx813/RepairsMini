@@ -124,6 +124,10 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function() {
-
+        return {
+            title: '报修，我们是认真的！',
+            path: '/pages/login/login',
+            imageUrl: '../../images/background.png'
+        }
     }
 })

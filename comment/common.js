@@ -113,4 +113,5 @@ module.exports = {
     getRepairDetail,
     getUserInfo,
     getUserRepairCount,
+    commentRepair,
 }

@@ -13,7 +13,7 @@ Page({
         halfSrc: '../../images/half.png',
         key: 0, //评分
         comment: '',
-        repairId: ''
+        repair: {},
     },
 
     //点击左边,半颗星
@@ -40,23 +40,71 @@ Page({
      * 获取评价的内容
      */
     bindCommentInput: function(e) {
-        this.setData({ comment: e.detail.value})
+        this.setData({
+            comment: e.detail.value
+        })
     },
 
     /**
      * 提交评价
      */
     bindSubmitComment: function() {
-        let url = '/cms/repair/app_evalute_repair?id=' + this.data.repairId + '&evaluate=' + this.data.comment + '&score=' + this.data.key
+        let url = '/cms/repair/app_evaluate_repair?id=' + this.data.repair.id + '&evaluate=' + this.data.comment + '&score=' + this.data.key
         console.log(url)
+        common.commentRepair(url).then(res => {
+            console.log(res)
+            if(res && res.ok) {
+                util.showToast('评价成功')
+                setTimeout(function () {
+                    wx.navigateBack()
+                }, 1000)
+            } else {
+                util.showToast('服务器错误，请稍后重试~')
+            }
+        })
+    },
+
+    /**
+     * 预览报修图片
+     */
+    previewRepairImg: function(e) {
+        let current = e.currentTarget.dataset.url
+        console.log(current)
+        wx.previewImage({
+            urls: this.data.repair.imgArray,
+            current: current
+        })
+    },
+
+    /**
+     * 预览反馈图片
+     */
+    previewOpinionImg: function(e) {
+        let current = e.currentTarget.dataset.url
+        console.log(current)
+        wx.previewImage({
+            urls: this.data.repair.opinionImgArray,
+            current: current
+        })
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        if(options.repairId) {
-            this.setData({repairId: options.repairId})
+        if (options.repairId) {
+            let repairId = options.repairId
+            let url = '/cms/repair/app_quaryone_repair?id=' + repairId
+            common.getRepairDetail(url).then(res => {
+                console.log(res)
+                if (res.ok) {
+                    let repair = util.formatRepairDetail(res.data)
+                    console.log(repair)
+                    this.setData({
+                        repair: repair
+                    })
+                }
+            })
         }
     },
 
@@ -106,6 +154,10 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function() {
-
+        return {
+            title: '报修，我们是认真的！',
+            path: '/pages/login/login',
+            imageUrl: '../../images/background.png'
+        }
     }
 })

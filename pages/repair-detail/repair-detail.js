@@ -28,6 +28,18 @@ Page({
       })
   },
 
+    /**
+     * 预览反馈图片
+     */
+    previewOpinionImg: function (e) {
+        let current = e.currentTarget.dataset.url
+        console.log(current)
+        wx.previewImage({
+            urls: this.data.repair.opinionImgArray,
+            current: current
+        })
+    },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -92,6 +104,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+      return {
+          title: '报修，我们是认真的！',
+          path: '/pages/login/login',
+          imageUrl: '../../images/background.png'
+      }
   }
 })
