@@ -5,7 +5,8 @@
             <image class='swiper-img' src='{{item}}'></image>
         </swiper-item>
     </swiper>
-    <view class='bulletin-tip'>
+    <!-- 公告栏开始 -->
+    <!-- <view class='bulletin-tip'>
         <view class='bulletin-left'>
             <view class='icon-tip'></view>
             <view class='icon-txt'>
@@ -25,10 +26,8 @@
             <view class='bulletin-title'>{{item.title}}</view>
             <view class='bulletin-time'>{{item.time}}</view>
         </view>
-        <!-- <i-notice-bar icon="systemprompt" loop>
-            2018年世界杯,将于6月14日至7月15日举行;2018年世界杯,将于6月14日至7月15日举行;
-        </i-notice-bar> -->
-    </view>
+    </view> -->
+    <!-- 公告栏结束 -->
     <view class='service-tip'>
         <view class='icon-tip'></view>
         <view class='icon-txt'>

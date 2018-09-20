@@ -1,4 +1,6 @@
 // pages/update-pwd/update-pwd.js
+const common = require('../../comment/common.js')
+const util = require('../../utils/util.js')
 Page({
 
     /**
@@ -20,10 +22,13 @@ Page({
             interval: false,//是否显示间隔格子
         },
         focus: false,
-        phoneInput: '',
-        realNameInput: '',
-        newPwd: '',
-        confirmNewPwd: ''
+        oldPwd: '',
+        newPwd1: '',
+        confirmPwd1: '',
+        phone: '',
+        realName: '',
+        newPwd2: '',
+        confirmPwd2: ''
     },
 
     /**
@@ -68,7 +73,158 @@ Page({
      * 获取真实姓名的输入值
      */
     bindRealNameInput: function(e) {
-        this.setData({ realNameInput: e.detail.value })
+        this.setData({
+            realName: e.detail.detail.value.trim()
+        })
+    },
+
+    /**
+     * 输入手机号
+     */
+    bindInputPhone: function(e) {
+        this.setData({
+            phone: e.detail.detail.value.trim()
+        })
+    },
+
+    /**
+     * 身份验证输入新密码
+     */
+    bindInputNewPwd2: function(e) {
+        this.setData({
+            newPwd2: e.detail.detail.value.trim()
+        })
+    },
+
+    /**
+     * 身份验证再次输入新密码
+     */
+    bindInputConfirmPwd2: function (e) {
+        this.setData({
+            confirmPwd2: e.detail.detail.value.trim()
+        })
+    },
+
+    /**
+     * 身份验证 检查数据并提交
+     */
+    checkIdentitySubmit: function() {
+        if(this.data.phone == "") {
+            util.showToast('手机号不能为空')
+            return
+        }
+
+        let phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/
+        if (!phoneReg.test(this.data.phone)) {
+            util.showToast('请输入有效的手机号')
+            return
+        }
+
+        if(this.data.realName == "") {
+            util.showToast('真实姓名不能为空')
+            return
+        }
+
+        if(this.data.newPwd2 == "") {
+            util.showToast('新密码不能为空')
+            return
+        }
+
+        if(this.data.confirmPwd2 == "") {
+            util.showToast('请再次输入新密码')
+            return
+        }
+
+        if(this.data.newPwd2 != this.data.confirmPwd2) {
+            util.showToast('两次输入的密码不一致')
+            return
+        }
+        //提交数据
+        let url = '/core/appuser/resetPassword_ByPer?phone=' + this.data.phone + '&name=' + this.data.realName + '&npass=' + this.data.newPwd2
+        wx.showLoading({
+            title: '正在提交...',
+        })
+        common.resetPwdByIdentity(url).then(res => {
+            wx.hideLoading()
+            if(res && res.ok) {
+                util.showToast('密码修改成功')
+                setTimeout(function () {
+                    wx.navigateBack()
+                }, 1000)
+            } else {
+                util.showToast('服务器错误，请稍后重试')
+            }
+        })
+    },
+
+    /**
+     * 输入原密码
+     */
+    bindInputOldPwd: function (e) {
+        console.log(e)
+        this.setData({
+            oldPwd: e.detail.detail.value.trim()
+        })
+    },
+
+    /**
+    * 密码验证输入新密码
+    */
+    bindInputNewPwd1: function (e) {
+        this.setData({
+            newPwd1: e.detail.detail.value.trim()
+        })
+    },
+
+    /**
+     * 密码验证再次输入新密码
+     */
+    bindInputConfirmPwd1: function (e) {
+        this.setData({
+            confirmPwd1: e.detail.detail.value.trim()
+        })
+    },
+
+    /**
+     * 密码验证 检查数据并提交
+     */
+    checkPwdSubmit: function() {
+        if(this.data.oldPwd == "") {
+            util.showToast('原密码不能为空')
+            return
+        }
+
+        if(this.data.newPwd1 == "") {
+            util.showToast('新密码不能为空')
+            return
+        }
+
+        if(this.data.confirmPwd1 == "") {
+            util.showToast('请再次输入新密码')
+            return
+        }
+
+        if(this.data.newPwd1 != this.data.confirmPwd1) {
+            util.showToast('两次输入的密码不一致')
+            return
+        }
+
+        //提交数据
+        let url = '/core/appuser/resetPassword_ByPass?oldPass=' + this.data.oldPwd + '&newPass=' + this.data.newPwd1
+        wx.showLoading({
+            title: '正在提交...',
+        })
+        common.resetPwdByOldPwd(url).then(res => {
+            wx.hideLoading()
+            if (res && res.ok) {
+                util.showToast('密码修改成功')
+                setTimeout(function () {
+                    wx.navigateBack()
+                }, 1000)
+            } else {
+                util.showToast('服务器错误，请稍后重试')
+            }
+        })
     },
 
     /**

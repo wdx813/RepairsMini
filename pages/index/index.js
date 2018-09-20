@@ -5,12 +5,13 @@ Page({
      * 页面的初始数据
      */
     data: {
+        //首页中的滚动图
         imgUrls: [
             'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
             'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
             'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
         ],
-
+        //公告列表信息 测试使用
         bulletins: [
             {
                 'id': 1,
@@ -30,12 +31,18 @@ Page({
         ]
     },
 
+    /**
+     * 跳转至公告列表
+     */
     toBulletinList: function() {
         wx.navigateTo({
             url: '/pages/bulletin-list/bulletin-list',
         })
     },
 
+    /**
+     * 跳转至公告详情
+     */
     toBulletinDetail: function(e) {
         var bulletinId = e.currentTarget.dataset.id
         wx.navigateTo({
@@ -43,18 +50,27 @@ Page({
         })
     },
 
+    /**
+     * 跳转至报修页
+     */
     toRepair: function() {
         wx.navigateTo({
             url: '/pages/repair/repair',
         })
     },
 
+    /**
+     * 跳转至查询页
+     */
     toSearch: function () {
         wx.navigateTo({
             url: '/pages/search/search',
         })
     },
 
+    /**
+     * 跳转至评价页
+     */
     toComment: function() {
         wx.navigateTo({
             url: '/pages/comment/comment',

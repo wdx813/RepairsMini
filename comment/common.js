@@ -63,6 +63,20 @@ function commentRepair(url) {
 }
 
 /**
+ * 重置密码 原密码验证
+ */
+function resetPwdByOldPwd(url) {
+    return sendRequest(url, 'GET').then(res => res.data)
+}
+
+/**
+ * 重置密码 身份验证
+ */
+function resetPwdByIdentity(url) {
+    return sendRequest(url, 'GET').then(res => res.data)
+}
+
+/**
  * 封装请求函数
  */
 function sendRequest(url, method, data) {
@@ -114,4 +128,6 @@ module.exports = {
     getUserInfo,
     getUserRepairCount,
     commentRepair,
+    resetPwdByOldPwd,
+    resetPwdByIdentity
 }
