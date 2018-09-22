@@ -96,7 +96,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.queryRepair(1)
+        
     },
 
     /**
@@ -110,7 +110,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        this.queryRepair(1)
     },
 
     /**
